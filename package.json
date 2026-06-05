@@ -1,0 +1,38 @@
+{
+  "name": "ccprism",
+  "version": "0.1.0",
+  "description": "Splits your AI coding agent usage into a calendar, rhythm, projects, and trend — one self-contained HTML report. Stands on ccusage.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Ernest Chen",
+  "homepage": "https://github.com/huaruic/ccprism",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huaruic/ccprism.git"
+  },
+  "bugs": {
+    "url": "https://github.com/huaruic/ccprism/issues"
+  },
+  "bin": {
+    "ccprism": "./src/index.ts"
+  },
+  "scripts": {
+    "start": "bun run src/index.ts",
+    "build": "bun build --compile --target=bun-darwin-arm64 ./src/index.ts --outfile bin/ccprism",
+    "typecheck": "tsc --noEmit",
+    "test": "bun test",
+    "fixture": "bunx ccusage@latest claude daily --json > test/fixtures-real/daily.json && bunx ccusage@latest claude session --json > test/fixtures-real/session.json && bunx ccusage@latest blocks --json > test/fixtures-real/blocks.json && bunx ccusage@latest claude daily --instances --json > test/fixtures-real/instances.json && bun run scripts/sanitize-fixtures.ts test/fixtures-real test/fixtures"
+  },
+  "dependencies": {
+    "citty": "^0.1.6",
+    "echarts": "^5.5.1",
+    "open": "^10.1.0"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5.5.0"
+  },
+  "engines": {
+    "bun": ">=1.1.0"
+  }
+}

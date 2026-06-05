@@ -1,0 +1,21 @@
+# Dependencies & build output
+node_modules/
+bin/
+
+# Generated reports (the tool's output)
+ccprism.html
+report.html
+/*.html
+
+# OS / editor cruft
+.DS_Store
+*.log
+.vscode/
+.idea/
+*.swp
+
+# Private: real ccusage output captured for local-only sanitizer input.
+# Only the SANITIZED counterparts in test/fixtures/ ship in this repo.
+test/fixtures-real/
+
+
